@@ -12,4 +12,13 @@ function showBookName(response) {
   console.log(response.data.name)
 }
 
-axios.get("https://anapioficeandfire.com/api/books/1").then(showBookName)
+function showBookList(response) {
+  let list = response.data
+
+  for(let i = 0; i < list.length; i++) {
+    console.log(list[i].name + " - " + list[i].released)
+  }
+}
+
+
+axios.get("https://anapioficeandfire.com/api/books").then(showBookList)
